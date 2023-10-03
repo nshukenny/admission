@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpeg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #007BFF;
+            overflow: hidden;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        .navbar a {
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+        }
+
+        .language-selection {
+            margin-right: 20px;
+            display: flex; 
+            align-items: center; 
+        }
+
+        .language-selection label {
+            color: #fff;
+            margin-right: 5px;
+        }
+
+        select#languageSelect {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+        }
+
+        select#languageSelect option {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent white background for content */
+        }
+
+        .container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" class="active">Home</a>
+        <a href="login.html">Login</a>
+        <a href="process_admission.html">Sign Up</a>
+        
+        
+        <div class="language-selection">
+            <label for="languageSelect">Select Language:</label>
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="kn">Kinyarwanda</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1 id="welcomeMessage">Welcome to Our Website</h1>
+        <a href="login.html" class="btn" id="loginButton">Login</a>
+        <a href="process_admission.html" class="btn" id="registerButton">Register</a>
+    </div>
+
+    <script>
+        
+        function setLanguage() {
+            const selectedLanguage = document.getElementById("languageSelect").value;
+
+            // Use translations based on the selected language
+            const translations = {
+                en: {
+                    welcomeMessage: "Welcome to Our Website",
+                    loginButton: "Login",
+                    registerButton: "Register"
+                },
+                fr: {
+                    welcomeMessage: "Bienvenue sur notre site web",
+                    loginButton: "Connexion",
+                    registerButton: "S'inscrire"
+                },
+                kn: {
+                    welcomeMessage: "Ikaze kurubuga Rwacu",
+                    loginButton: "Injira",
+                    registerButton: "Iyandikishe"
+                }
+            };
+
+            
+            document.getElementById("welcomeMessage").textContent = translations[selectedLanguage].welcomeMessage;
+            document.getElementById("loginButton").textContent = translations[selectedLanguage].loginButton;
+            document.getElementById("registerButton").textContent = translations[selectedLanguage].registerButton;
+        }
+
+        
+        document.getElementById("languageSelect").addEventListener("change", setLanguage);
+
+       
+        setLanguage();
+    </script>
+</body>
+</html>
